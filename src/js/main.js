@@ -77,8 +77,7 @@ window.addEventListener("resize", () => {
 	camera.updateProjectionMatrix()
 	renderer.setSize(sizes.width, sizes.height)
 })
-if (window.innerWidth < 440) {
+if (window.innerWidth < 400) {
 	camera.fov = 50
-	camera.position.z = 50
-	console.log(camera.position.z)
+	camera.position.z = 60
 }

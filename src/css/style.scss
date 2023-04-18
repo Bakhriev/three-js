@@ -116,14 +116,13 @@ body {
 	}
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 399.9px) {
 	.hero__container {
 		flex-direction: column;
 		text-align: center;
 		gap: 50px;
 	}
-
 	.canvas {
-		height: 320px;
+		height: 300px;
 	}
 }
