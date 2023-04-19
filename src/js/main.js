@@ -39,6 +39,8 @@ camera.position.z = 100
 
 // Controls
 const controls = new OrbitControls(camera, renderer.domElement)
+controls.minDistance = 90
+controls.maxDistance = 140
 controls.enableDamping = true
 controls.enablePan = false
 
