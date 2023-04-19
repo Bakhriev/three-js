@@ -50,7 +50,7 @@ body {
 }
 
 body {
-	background: url(../../space.png) no-repeat center/cover;
+	background: url(../../space.webp) no-repeat center/cover;
 }
 
 .hero {
@@ -68,6 +68,8 @@ body {
 }
 
 .hero__item:last-child {
+	position: relative;
+	z-index: 2;
 	flex: 2;
 }
 
@@ -80,49 +82,10 @@ body {
 	font-size: 20px;
 }
 
-@media screen and (max-width: 992px) {
-	.hero__container {
-		flex-direction: column;
-		text-align: center;
-		gap: 50px;
-	}
-
-	.canvas {
-		height: 800px;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.hero__container {
-		flex-direction: column;
-		text-align: center;
-		gap: 50px;
-	}
-
-	.canvas {
-		height: 600px;
-	}
-}
-
-@media screen and (max-width: 585px) {
-	.hero__container {
-		flex-direction: column;
-		text-align: center;
-		gap: 50px;
-	}
-
-	.canvas {
-		height: 400px;
-	}
-}
-
-@media screen and (max-width: 399.9px) {
-	.hero__container {
-		flex-direction: column;
-		text-align: center;
-		gap: 50px;
-	}
-	.canvas {
-		height: 300px;
-	}
+.canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }

@@ -1,5 +1,6 @@
 import * as THREE from "three"
 import { OrbitControls } from "three/addons/controls/OrbitControls.js"
+import * as DAT from "dat.gui"
 
 const canvas = document.querySelector(".canvas")
 const sizes = {
@@ -9,7 +10,7 @@ const sizes = {
 
 // Texture Loader
 const loader = new THREE.TextureLoader()
-const earth = loader.load("earth.jpg")
+const earth = loader.load("earth.webp")
 
 // scene
 const scene = new THREE.Scene()
@@ -38,8 +39,6 @@ camera.position.z = 100
 
 // Controls
 const controls = new OrbitControls(camera, renderer.domElement)
-controls.minDistance = 90
-controls.maxDistance = 140
 controls.enableDamping = true
 controls.enablePan = false
 
@@ -53,17 +52,20 @@ const material = new THREE.MeshPhongMaterial({
 const sphere = new THREE.Mesh(geometry, material)
 scene.add(sphere)
 
-{
-	const topColor = 0x05c9f5
-	const intensity = 3
-	const light = new THREE.HemisphereLight(topColor, topColor, intensity)
-	scene.add(light)
+const light = new THREE.AmbientLight(0xffffff, 3)
+scene.add(light)
+
+let ball = {
+	rotationY: 0.01
 }
+
+const gui = new DAT.GUI()
+gui.add(ball, "rotationY").min(-0.2).max(20).step(0.001)
 
 const loop = time => {
 	requestAnimationFrame(loop)
 	time *= 0.0001
-	sphere.rotation.y = time
+	sphere.rotation.y += ball.rotationY
 	controls.update()
 	renderer.render(scene, camera)
 }
